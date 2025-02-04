@@ -1,0 +1,3 @@
+http://103.196.31.6/services/user/values.xml?var=F-02%20LT%20Power%20House.API&var=F-02%20LT%20Power%20House.AE&var=F-02%20LT%20Power%20House.VAI&var=F-02%20LT%20Power%20House.PFI
+http://103.196.31.6/services/user/values.xml?var=F-03%20C%20Block%20SSB-2.API&var=F-03%20C%20Block%20SSB-2.AE&var=F-03%20C%20Block%20SSB-2.VAI&var=F-03%20C%20Block%20SSB-2.PFI
+http://103.196.31.6/services/user/values.xml?var=F-05%20G%20Block%20SSB-3.API&var=F-05%20G%20Block%20SSB-3.AE&var=F-05%20G%20Block%20SSB-3.VAI&var=F-05%20G%20Block%20SSB-3.PFI

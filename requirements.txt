@@ -1,0 +1,6 @@
+pymongo
+redis
+dramatiq
+apscheduler
+requests
+xmltodict
