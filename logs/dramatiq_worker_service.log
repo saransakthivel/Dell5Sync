@@ -1,0 +1,5 @@
+2025-02-05 16:42:55,303 - INFO - Dell5 Dramatic Task Service: Initialization started.
+2025-02-05 16:43:02,902 - INFO - Dell5 Dramatic Task Service: Initialization started.
+2025-02-05 16:43:03,114 - INFO - Dell5 Dramatic Task Service: Initialization started.
+2025-02-05 16:43:03,115 - INFO - Service is now running.
+2025-02-05 16:43:03,115 - INFO - Starting Dramatiq worker process...
