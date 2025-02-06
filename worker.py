@@ -3,6 +3,7 @@ import time
 import win32serviceutil
 import win32service
 import win32event
+import subprocess
 from subprocess import Popen, PIPE
 import logging
 from logging.handlers import RotatingFileHandler
@@ -29,7 +30,7 @@ logging.getLogger().addHandler(log_handler)
 logging.info("Dell5 Dramatic Task Service: Initialization started.")
 
 class TaskService(win32serviceutil.ServiceFramework):
-    _svc_name_ = "Dell5DramaticTaskService"  
+    _svc_name_ = "Dell5DramaticTaskService"
     _svc_display_name_ = "Dell5 Dramatic Task Service"  
     
     def __init__(self, args):
@@ -44,8 +45,17 @@ class TaskService(win32serviceutil.ServiceFramework):
         logging.info("Service stopped successfully.")
         
         if self.process:
+            logging.info("Stopping subprocess...")
             self.process.terminate() 
-            self.process.wait() 
+            try:
+                self.process.wait(timeout=5)
+                logging.info("Subprocess Stopped Successfully.")
+            except subprocess.TimeoutExpired:
+                logging.warning("Process did not terminate in time, forcing kill")
+                self.process.kill()
+                
+        self.ReportServiceStatus(win32service.SERVICE_STOPPED)
+        logging.info("Service stopped successfully.")
     
     def SvcDoRun(self):
         logging.info("Service is now running.")
