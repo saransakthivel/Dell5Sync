@@ -17,7 +17,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 import pytz
 
-# Logging setup
+# Logging setup 1
 
 # log_directory = "C:\\Users\\admin\\OneDrive - E 4 Energy Solutions\\Saturn Pyro Files\\Documents\\Dell5Sync\\logs"
 # os.makedirs(log_directory, exist_ok=True)
@@ -32,6 +32,8 @@ import pytz
 #         logging.StreamHandler(sys.stdout)
 #     ]
 # )
+
+# Logging setup 2
 
 logging.basicConfig(level=logging.INFO)
 
@@ -65,7 +67,7 @@ class PythonService(win32serviceutil.ServiceFramework):
         self.broker = RedisBroker(host="localhost", port=6379)
         dramatiq.set_broker(self.broker)
 
-        self.client = MongoClient("mongodb://localhost:27017")
+        self.client = MongoClient("mongodb+srv://test_db:test@datasync.0ptzw.mongodb.net/?retryWrites=true&w=majority&appName=DataSync")
         self.db = self.client["test_db"]
         self.collection = self.db["test_collection"]
 
@@ -105,7 +107,7 @@ class PythonService(win32serviceutil.ServiceFramework):
         script_dir = os.path.abspath(os.path.dirname(__file__))
         url_file = os.path.join(script_dir, "urls.txt")
 
-        client = MongoClient("mongodb://localhost:27017")
+        client = MongoClient("mongodb+srv://test_db:test@datasync.0ptzw.mongodb.net/?retryWrites=true&w=majority&appName=DataSync")
         db = client["test_db"]
         collection = db["test_collection"]
 
@@ -155,7 +157,7 @@ class PythonService(win32serviceutil.ServiceFramework):
     @staticmethod
     @dramatiq.actor
     def delete_old_data():
-        client = MongoClient("mongodb://localhost:27017")
+        client = MongoClient("mongodb+srv://test_db:test@datasync.0ptzw.mongodb.net/?retryWrites=true&w=majority&appName=DataSync")
         db = client["test_db"]
         collection = db["test_collection"]
         try:

@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # MongoDB Service
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - app-network
+
+  app:
+    build:
+      context: .
+    container_name: Dell5-EDS-Fetching
+    ports:
+      - "8000:8000" 
+    volumes:
+      - .:/app
+    depends_on:
+      - mongodb
+      - redis
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017
+      - REDIS_URL=redis://redis:6379
+    networks:
+      - app-network
+
+  # Redis Service
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  app-network:
+    driver: bridge

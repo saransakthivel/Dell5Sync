@@ -1,6 +1,17 @@
-pymongo
-redis
-dramatiq
-apscheduler
-requests
-xmltodict
+APScheduler==3.11.0
+certifi==2025.1.31
+charset-normalizer==3.4.1
+dnspython==2.7.0
+dramatiq==1.17.1
+idna==3.10
+prometheus_client==0.21.1
+pymongo==4.11
+pytz==2025.1
+redis==5.2.1
+requests==2.32.3
+tzdata==2025.1
+tzlocal==5.2
+urllib3==2.3.0
+xmltodict==0.14.2
+# Windows-only package (ignored in Docker)
+pywin32==308; sys_platform == "win32"

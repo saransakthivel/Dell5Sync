@@ -1,0 +1,2 @@
+[console_scripts]
+dramatiq = dramatiq.__main__:main
